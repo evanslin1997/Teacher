@@ -100,7 +100,7 @@ function App() {
         <ApiKeyInput value={apiKey} onChange={setApiKey} />
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', alignItems: 'start' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 400px), 1fr))', gap: '1.5rem', alignItems: 'start' }}>
         <div className="fade-in" style={{ animationDelay: '0.2s' }}>
           <StudentInput value={students} onChange={setStudents} />
         </div>

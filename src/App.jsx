@@ -143,7 +143,7 @@ function App() {
       </div>
 
       <footer style={{ marginTop: '4rem', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.8rem', paddingBottom: '2rem' }}>
-        <p>由 Google Gemini API 驅動 • 隱私優先（金鑰僅存於本地）</p>
+        <p>Made by Evans Lin • 隱私優先（金鑰僅存於本地）</p>
       </footer>
     </div>
   );

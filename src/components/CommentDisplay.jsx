@@ -4,10 +4,31 @@ import { Copy, Check, Download } from 'lucide-react';
 export default function CommentDisplay({ results }) {
     const [copiedId, setCopiedId] = React.useState(null);
 
-    const handleCopy = (text, id) => {
-        navigator.clipboard.writeText(text);
-        setCopiedId(id);
-        setTimeout(() => setCopiedId(null), 2000);
+    const handleCopy = async (text, id) => {
+        try {
+            // Create HTML with black text color
+            const htmlBlob = new Blob(
+                [`<span style="color: #000000;">${text}</span>`],
+                { type: 'text/html' }
+            );
+            const textBlob = new Blob([text], { type: 'text/plain' });
+
+            // Use ClipboardItem to write both formats
+            const clipboardItem = new ClipboardItem({
+                'text/html': htmlBlob,
+                'text/plain': textBlob
+            });
+
+            await navigator.clipboard.write([clipboardItem]);
+            setCopiedId(id);
+            setTimeout(() => setCopiedId(null), 2000);
+        } catch (err) {
+            // Fallback to simple text copy if ClipboardItem is not supported
+            console.error('Clipboard API error:', err);
+            navigator.clipboard.writeText(text);
+            setCopiedId(id);
+            setTimeout(() => setCopiedId(null), 2000);
+        }
     };
 
     if (!results || results.length === 0) return null;

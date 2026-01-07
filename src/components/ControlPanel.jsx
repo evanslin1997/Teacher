@@ -7,11 +7,11 @@ const STYLE_OPTIONS = [
 ];
 
 const WORD_COUNT_OPTIONS = [
-    { label: '300字', value: 300 },
-    { label: '200字', value: 200 },
     { label: '150字', value: 150 },
     { label: '100字', value: 100 },
-    { label: '50字', value: 50 },
+    { label: '60字', value: 60 },
+    { label: '45字', value: 45 },
+    { label: '30字', value: 30 },
     { label: '16字', value: 16 }
 ];
 
